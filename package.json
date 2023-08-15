@@ -1,5 +1,5 @@
 {
-  "name": "codemorph-commands",
+  "name": "@codemorph/commands",
   "version": "1.0.0",
   "description": "CodemorphCommands",
   "main": "./lib/cjs/index.js",
