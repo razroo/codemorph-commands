@@ -14,4 +14,11 @@ describe('Version', () => {
     const expected = { name: "apollo-angular", version: "^3.0.1" };
     expect(result).toEqual(expected);
   });
+
+  it('should still extract the package name if no version', () => {
+    const packageNameAndVersion = 'apollo-angular';
+    const result = extractNameAndVersion(packageNameAndVersion);
+    const expected = { name: "apollo-angular", version: undefined };
+    expect(result).toEqual(expected);
+  });
 });
