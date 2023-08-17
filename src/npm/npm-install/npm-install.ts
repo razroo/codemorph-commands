@@ -1,3 +1,3 @@
-export function npmInstallCodemorph(): string {
-    return '';
+export function npmInstallCodemorph(commandText: string): string {
+    return commandText;
 }

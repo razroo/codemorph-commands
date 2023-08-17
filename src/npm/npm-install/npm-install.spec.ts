@@ -1,5 +1,10 @@
+import { morphCommand } from "../../command-morph/command-morph";
+
 describe('npmInstall', () => {
   it('should return npm install with needed codemod', () => {
-    expect(1).toEqual(1);
+    const npmInstallCommandText = 'npm install test';
+    const result = morphCommand(npmInstallCommandText);
+    const expected = 'npm install test';
+    expect(result).toEqual(expected);
   });  
 });
