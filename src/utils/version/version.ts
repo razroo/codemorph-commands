@@ -1,6 +1,17 @@
-// getNameAndVersion() {
+import axios from "axios";
 
-// }
+export async function getNameAndVersion(packageString: string): Promise<{ name: string, version: string}> {
+  const {name, version} = extractNameAndVersion(packageString);
+  if(name && version) {
+    return {name, version};
+  } else {
+    const response = await axios.get(`https://registry.npmjs.org/${name}`);
+    const data = response.data;
+    const packageName = data.name;
+    const packageVersion = data.version;
+    return {name: packageName, version: packageVersion};
+  }
+}
 
 export function extractNameAndVersion(packageString: string): { name: string, version: string | undefined } {
   const regex = /^(@?[^@]+)@(.+)$/;
