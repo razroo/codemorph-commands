@@ -1,12 +1,12 @@
-import { getFirstWordOfCommand } from "../utils/word-search";
+import { getFirstWordOfCommand } from "../utils/command-search/command-search";
 import { npmCommandMorph } from "../npm/npm-command-morph";
 import { CommandMorph } from "./command-morph.interface";
 
-export function morphCommand(commandText: string): any {
+export async function morphCommand(commandText: string): any {
   const commandTool = getFirstWordOfCommand(commandText);
   switch(commandTool) {
     case CommandMorph.npm: 
-      return npmCommandMorph(commandText);      
+      return await npmCommandMorph(commandText);      
   }
 }
 
