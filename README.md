@@ -6,7 +6,7 @@ Codemorph commands allows for commands to be used in a virtual file system. For 
 npm install react --save, will be turned into a code mod that updates the package.json 
 dependencies. 
 
-# Important Note ⚠️
+# Important Note 🌟🌟🌟🌟🌟
 
 Being that Codemorph makes use of many system-based code modifiers, even though this library is built using ESM, we find that it affects the initial bundle size for FE application.
 
