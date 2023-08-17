@@ -1,5 +1,5 @@
-import { NpmCommandMorph } from "src/npm/interfaces/npm-command-morph.interface";
-import { CommandMorph } from "../command-morph/command-morph.interface";
+import { NpmCommandMorph } from "../../npm/interfaces/npm-command-morph.interface";
+import { CommandMorph } from "../../command-morph/command-morph.interface";
 
 export function getFirstWordOfCommand(commandText: string): CommandMorph {
   const words = commandText.trim().split(/\s+/);
