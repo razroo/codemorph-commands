@@ -13,8 +13,8 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
     edits: [
       {
         nodeType: 'editJson' as any,
-        valueToModify: 'dependencies',
-        codeBlock: `{"${name}": "${version}"}`
+        valueToModify: '/dependencies',
+        codeBlock: {[name]: version}
       }
     ]
   }
