@@ -1,6 +1,17 @@
 module.exports = {
+  preset: 'ts-jest/presets/default-esm',
+  testEnvironment: 'node',
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.(t|j)s$': 'ts-jest'
+  },
+  globals: { 
+    'ts-jest': { 
+      diagnostics: false,
+      useESM: true
+    } 
+  },
+  moduleNameMapper: {
+    axios: 'axios/dist/node/axios.cjs',
   },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)s$',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
