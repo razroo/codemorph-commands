@@ -1,4 +1,4 @@
-![Codemorph Logo](assets/codemorph-logo-small.png "Codemorph - Extensible Codemod Library") ![Codemorph Logo](assets/razroo-certified-logo.png "Razroo Certified")
+![Codemorph Logo](assets/codemorph-commands-logo-small.png "Codemorph - Extensible Codemod Library") ![Codemorph Logo](assets/razroo-certified-logo.png "Razroo Certified")
 
 Codemorph Commands is an extensible, easy-to-understand, easy-to-contribute, easy-to-use **Codemod** library. Codemorph is platform agnostic and currenrly supports **npm**.
 
