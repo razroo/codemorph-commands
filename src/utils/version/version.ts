@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export async function getNameAndVersion(packageString: string): Promise<{ name: string, version: string}> {
   const {name, version} = extractNameAndVersion(packageString);

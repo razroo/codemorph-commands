@@ -10,6 +10,9 @@ module.exports = {
       useESM: true
     } 
   },
+  moduleNameMapper: {
+    axios: 'axios/dist/node/axios.cjs',
+  },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)s$',
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
 };
