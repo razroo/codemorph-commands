@@ -11,7 +11,7 @@ describe('WordSearch', () => {
   });  
 
   describe('getSecondWordOfCommand', () => {
-    it('should get the first word of the command tool', () => {
+    it('should get the second word of the command tool', () => {
       const commandText = 'npm install text';
       const result = getSecondWordOfCommand(commandText);
       const expected = 'install';
