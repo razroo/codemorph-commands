@@ -1,3 +1,3 @@
 export enum NpmCommandMorph {
-  install
+  install = 'install'
 }
