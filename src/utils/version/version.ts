@@ -8,7 +8,7 @@ export async function getNameAndVersion(packageString: string): Promise<{ name: 
     const response = await axios.get(`https://registry.npmjs.org/${name}`);
     const data = response.data;
     const packageName = data.name;
-    const packageVersion = data.version;
+    const packageVersion = data['dist-tags'].latest; // Latest version might be under dist-tags.latest
     return {name: packageName, version: packageVersion};
   }
 }

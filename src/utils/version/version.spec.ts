@@ -20,7 +20,8 @@ describe('Version', () => {
       const packageNameAndVersion = 'apollo-angular';
       const result = await getNameAndVersion(packageNameAndVersion);
       const expected = { name: "apollo-angular", version: undefined };
-      expect(result).toEqual(expected);
+      expect(result.name).toEqual("apollo-angular");
+      expect(result.version).not.toEqual(undefined);
     });
   });  
 });
