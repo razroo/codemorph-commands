@@ -16,7 +16,7 @@ We highly recommend using this in either system applications or backend applicat
 
 # How to Install Codemorph Commands
 
-```
+```bash
 npm install @codemorph/commands --save
 ```
 
@@ -25,7 +25,7 @@ We have not implements the `filesToAffect` logic as we have for the @codemorph/c
 We will do soon. However, for now the assumption is that if it's a command, package.json will 
 be the only files impacted.
 
-```
+```ts
 const packageJson = {name: 'hello', dependencies: {}};
 const stringifiedPackageJson = JSON.stringify(packageJson);
 const commandText = "npm install react@18.0.0 --save"
