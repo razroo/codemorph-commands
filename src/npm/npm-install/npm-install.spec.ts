@@ -2,7 +2,7 @@ import { morphCommand } from "../../command-morph/command-morph";
 
 describe('npmInstall', () => {
   it('should return npm install with needed codemod', async() => {
-    const npmInstallCommandText = 'npm install apollo-angular';
+    const npmInstallCommandText = 'npm install apollo-angular react --save';
     const mockPackageJson = {
       name: 'hello', 
       dependencies: {
@@ -15,7 +15,8 @@ describe('npmInstall', () => {
   "name": "hello",
   "dependencies": {
     "angular": "16.0.0",
-    "apollo-angular": "5.0.0"
+    "apollo-angular": "5.0.0",
+    "react": "18.2.0"
   }
 }`;
     expect(result).toEqual(expected);
