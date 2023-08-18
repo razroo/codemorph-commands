@@ -5,7 +5,7 @@ import {morphCode, EditInput} from "@codemorph/core";
 
 export async function npmInstallCodemorph(commandText: string, packageJsonString: string): Promise<string> {
   const packageNames = extractPackageNames(commandText);
-  const dependencyObject = {}
+  const dependencyObject = {} as any;
   for(const packageName of packageNames) {
     const {name, version} = await getNameAndVersion(packageName);
     dependencyObject[name] = version;
