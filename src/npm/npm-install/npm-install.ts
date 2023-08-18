@@ -1,3 +1,4 @@
+import { determineDependencyType } from "../../utils/dependency-type/dependency-type";
 import { extractPackageName } from "../../utils/command-search/command-search";
 import { getNameAndVersion } from "../../utils/version/version";
 import {morphCode, EditInput} from "@codemorph/core";
@@ -7,6 +8,7 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
   const {name, version} = await getNameAndVersion(packageName);
   const packageJsonParsed = JSON.parse(packageJsonString);
   const packageJsonDependencies = packageJsonParsed && packageJsonParsed.dependencies;
+  const dependencyType = determineDependencyType(commandText);
 
   const editInput: EditInput = {
     fileType: 'json',
@@ -15,7 +17,7 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
     edits: [
       {
         nodeType: 'editJson' as any,
-        valueToModify: '/dependencies',
+        valueToModify: `/${dependencyType}`,
         codeBlock: {
           ...packageJsonDependencies,
           [name]: version
