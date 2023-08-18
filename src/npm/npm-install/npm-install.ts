@@ -25,9 +25,5 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
   }
   
   const morphedCode = morphCode(editInput);
-  console.log('name');
-  console.log(name);
-  console.log('version');
-  console.log(version);
   return morphedCode;
 }
