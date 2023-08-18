@@ -5,6 +5,8 @@ import {morphCode, EditInput} from "@codemorph/core";
 export async function npmInstallCodemorph(commandText: string, packageJsonString: string): Promise<string> {
   const packageName = extractPackageName(commandText);
   const {name, version} = await getNameAndVersion(packageName);
+  const packageJsonParsed = JSON.parse(packageJsonString);
+  const packageJsonDependencies = packageJsonParsed && packageJsonParsed.dependencies;
 
   const editInput: EditInput = {
     fileType: 'json',
@@ -14,7 +16,10 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
       {
         nodeType: 'editJson' as any,
         valueToModify: '/dependencies',
-        codeBlock: {[name]: version}
+        codeBlock: {
+          ...packageJsonDependencies,
+          [name]: version
+        }
       }
     ]
   }
