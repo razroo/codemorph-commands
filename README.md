@@ -14,8 +14,24 @@ We highly recommend using this in either system applications or backend applicat
 
 ![Pass a star to your codemorph](https://github.com/razroo/codemorph/assets/8540141/29433c8a-9ce0-4202-94ce-fec8f00d3b78)
 
-# How to Install Codemorph 
+# How to Install Codemorph Commands
 
 ```
 npm install @codemorph/commands --save
+```
+
+# How To Use Codemorph Commands
+We have not implements the `filesToAffect` logic as we have for the @codemorph/core library. 
+We will do soon. However, for now the assumption is that if it's a command, package.json will 
+be the only files impacted.
+
+```
+const packageJson = {name: 'hello', dependencies: {}};
+const stringifiedPackageJson = JSON.stringify(packageJson);
+const commandText = "npm install react@18.0.0 --save"
+const morphedPackageJson = morphCommand(commandText, stringifiedPackageJson);
+/* 
+Will return
+{name: 'hello', dependencies: {react: '18.0.0'}};
+*/
 ```
