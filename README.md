@@ -29,7 +29,8 @@ be the only files impacted.
 const packageJson = {name: 'hello', dependencies: {}};
 const stringifiedPackageJson = JSON.stringify(packageJson);
 const commandText = "npm install react@18.0.0 --save"
-const morphedPackageJson = morphCommand(commandText, stringifiedPackageJson);
+// uses await as it pulls information from npm registry in certain scenarios
+const morphedPackageJson = await morphCommand(commandText, stringifiedPackageJson);
 /* 
 Will return
 {name: 'hello', dependencies: {react: '18.0.0'}};
