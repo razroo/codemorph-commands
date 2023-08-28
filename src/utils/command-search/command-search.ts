@@ -11,11 +11,24 @@ export function getSecondWordOfCommand(commandText: string): NpmCommandMorph {
   return words[1] as unknown as NpmCommandMorph;
 } 
 
+function containsDoubleAmpersand(input: string): boolean {
+  const regex = /&&/;
+  return regex.test(input);
+}
+
 export function extractPackageNames(commandText: string): string[] {
-  const commandTextCleaned = commandText.replace('npm', '')
-    .replace('install', '').replace('--save', '').replace('--save-dev', '')
-    .replace(';', '').trim();
-  return commandTextCleaned.split(' ');
+  const commandTextCleaned = commandText.replace(/npm/g, '')
+    .replace(/install/g, '')
+    .replace(/--save/g, '')
+    .replace(/--save-dev/g, '')
+    .replace(/;/g, '')
+    .trim();
+  
+  if(containsDoubleAmpersand(commandTextCleaned)) {
+    return commandTextCleaned.split('&&').map(packageName => packageName.trim());
+  } else {
+    return commandTextCleaned.split(' ');
+  }
 }
 
 
