@@ -43,6 +43,12 @@ describe('WordSearch', () => {
       const result = extractPackageNames(sampleCommand);
       expect(result).toEqual(['apollo-angular@^3.0.1', 'react']);
     });
+
+    it('should extract all package names from a command if uses && syntax', () => {
+      const sampleCommand = 'npm install apollo-angular@^3.0.1 --save && react --save';
+      const result = extractPackageNames(sampleCommand);
+      expect(result).toEqual(['apollo-angular@^3.0.1', 'react']);
+    });
   })
   
 });
