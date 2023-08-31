@@ -19,8 +19,8 @@ function containsDoubleAmpersand(input: string): boolean {
 export function extractPackageNames(commandText: string): string[] {
   const commandTextCleaned = commandText.replace(/npm/g, '')
     .replace(/install/g, '')
-    .replace(/--save/g, '')
     .replace(/--save-dev/g, '')
+    .replace(/--save/g, '')
     .replace(/;/g, '')
     .trim();
   

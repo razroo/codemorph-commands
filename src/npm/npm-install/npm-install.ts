@@ -12,8 +12,8 @@ export async function npmInstallCodemorph(commandText: string, packageJsonString
   }
   
   const packageJsonParsed = JSON.parse(packageJsonString);
-  const packageJsonDependencies = packageJsonParsed && packageJsonParsed.dependencies;
   const dependencyType = determineDependencyType(commandText);
+  const packageJsonDependencies = packageJsonParsed && dependencyType === 'dependencies' ? packageJsonParsed.dependencies : packageJsonParsed.devDependencies;
 
   const editInput: EditInput = {
     fileType: 'json',
